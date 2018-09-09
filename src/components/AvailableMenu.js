@@ -9,9 +9,7 @@ export default ({availableMenu,selection}) => {
 			<div className="collection-item" key={menu.id} onClick={()=>(selection(menu.id))}>{menu.nama}</div> 
 		)
 	):(
-		<div className="collection-item">
-			<h5 className="red-text">Semua Menu Telah Terpilih</h5>
-		</div>
+		<div className="collection-item">Semua Menu Telah Terpilih</div>
 	);
 
 	return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AvailableMenu from './components/AvailableMenu';
 import ChosenMenu from './components/ChosenMenu';
+import AddMenu from './components/AddMenu'
 
 class App extends Component {
   state={
@@ -35,13 +36,29 @@ class App extends Component {
     })
   }
 
+  addMenu=(menu)=>{
+    let availableMenu=[...this.state.availableMenu,menu]
+    this.setState({
+      availableMenu
+    })
+  }
+
   render() {
     return (
       <div className="App container">
-        <h3 className="center">Menu yang Tersedia</h3>
-        <AvailableMenu availableMenu={this.state.availableMenu} selection={this.selection}/>
-        <h3 className="center">Menu Terpilih</h3>
-        <ChosenMenu chosenMenu={this.state.chosenMenu} selection={this.selection}/>
+        <div className="row">
+          <div className="col m4 s12">
+            <h4 className="center">Menu</h4>
+            <AvailableMenu availableMenu={this.state.availableMenu} selection={this.selection}/>
+          </div>
+          <div className="col m8 s12">
+            <h4 className="center">Menu Terpilih</h4>
+            <ChosenMenu chosenMenu={this.state.chosenMenu} selection={this.selection}/>
+          </div>
+        </div>
+        <div>
+          <AddMenu addMenu={this.addMenu}/>
+        </div>
       </div>
     );
   }
