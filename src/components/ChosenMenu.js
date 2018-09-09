@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default ({chosenMenu,deselectMenu}) => {
+export default ({chosenMenu,selection}) => {
 	// console.log(chosenMenu);
 
 	const ChosenMenuList = chosenMenu.length?
 	chosenMenu.map(
 		menu=> ( 
-			<div className="collection-item" key={menu.id} onClick={()=>(deselectMenu(menu.id))}>{menu.nama}</div> 
+			<div className="collection-item" key={menu.id} onClick={()=>(selection(menu.id,'de'))}>{menu.nama}</div> 
 		)
 	):(
 		<div className="collection-item">

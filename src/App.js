@@ -12,36 +12,26 @@ class App extends Component {
     chosenMenu:[
     ]
   }
-  
-  selectMenu=(id)=>{
-    const availableMenu = this.state.availableMenu;
-    const newChosen = this.state.chosenMenu;
-    for(let x=0;x<availableMenu.length;x++){
-      if(availableMenu[x].id===id){
-        newChosen.push(availableMenu[x]);
-        break;
-      }
-    }
-    const newAvailable = availableMenu.filter(menu=>{return menu.id!==id});
-    this.setState({
-      availableMenu:newAvailable,
-      chosenMenu:newChosen
-    })
-  }
 
-  deselectMenu=(id)=>{
-    const chosenMenu = this.state.chosenMenu;
-    const newAvailable = this.state.availableMenu;
-    for(let x=0;x<chosenMenu.length;x++){
-      if(chosenMenu[x].id===id){
-        newAvailable.push(chosenMenu[x]);
+  selection=(id,type = 'select')=>{
+    let add='chosenMenu';
+    let rm='availableMenu';
+    if(type!=='select'){
+      add='availableMenu';
+      rm='chosenMenu';
+    }
+    let newrm = this.state[rm];
+    const newadd = this.state[add];
+    for(let x=0;x<newrm.length;x++){
+      if(newrm[x].id===id){
+        newadd.push(newrm[x]);
         break;
       }
     }
-    const newChosen = chosenMenu.filter(menu=>{return menu.id!==id});
+    newrm = newrm.filter(menu=>{return menu.id!==id});
     this.setState({
-      availableMenu:newAvailable,
-      chosenMenu:newChosen
+      [rm]:newrm,
+      [add]:newadd
     })
   }
 
@@ -49,9 +39,9 @@ class App extends Component {
     return (
       <div className="App container">
         <h3 className="center">Menu yang Tersedia</h3>
-        <AvailableMenu availableMenu={this.state.availableMenu} selectMenu={this.selectMenu}/>
+        <AvailableMenu availableMenu={this.state.availableMenu} selection={this.selection}/>
         <h3 className="center">Menu Terpilih</h3>
-        <ChosenMenu chosenMenu={this.state.chosenMenu} deselectMenu={this.deselectMenu}/>
+        <ChosenMenu chosenMenu={this.state.chosenMenu} selection={this.selection}/>
       </div>
     );
   }
