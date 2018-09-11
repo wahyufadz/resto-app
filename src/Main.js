@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route,NavLink,HashRouter} from 'react-router-dom'
+import {Route,NavLink,BrowserRouter} from 'react-router-dom'
 import Home from './nav/Home'
 import AddMenu from './nav/AddMenu'
 import OrderMenu from './nav/OrderMenu'
@@ -7,7 +7,7 @@ import OrderMenu from './nav/OrderMenu'
 export default class Main extends Component {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div>
           <div className='nav-wrapper'>
             <nav>
@@ -27,7 +27,7 @@ export default class Main extends Component {
             <Route path='/ordermenu' component={OrderMenu}/>
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }
