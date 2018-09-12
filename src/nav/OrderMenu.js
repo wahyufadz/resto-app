@@ -51,7 +51,7 @@ class OrderMenu extends Component {
         </div>
         <div className="col m8 s12">
           <h4 className="center">Menu Terpilih</h4>
-          <MenuView menuView={this.state.chosenMenu} selection={this.selection} type='de'/>
+          <MenuView menuView={this.state.chosenMenu} selection={this.selection} onClickType='deselect'/>
         </div>
       </div>
       );
