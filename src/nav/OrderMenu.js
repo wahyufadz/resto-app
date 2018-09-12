@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import AvailableMenu from '../components/AvailableMenu';
-import ChosenMenu from '../components/ChosenMenu';
 import Axios from 'axios';
+import MenuView from '../components/MenuView';
 
 class OrderMenu extends Component {
   state={
@@ -42,21 +41,21 @@ class OrderMenu extends Component {
       [add]:newadd
     })
   }
-
+  
   render() {
     return (
       <div className="row">
         <div className="col m4 s12">
           <h4 className="center">Menu</h4>
-          <AvailableMenu availableMenu={this.state.availableMenu} selection={this.selection}/>
+          <MenuView menuView={this.state.availableMenu} selection={this.selection}/>
         </div>
         <div className="col m8 s12">
           <h4 className="center">Menu Terpilih</h4>
-          <ChosenMenu chosenMenu={this.state.chosenMenu} selection={this.selection}/>
+          <MenuView menuView={this.state.chosenMenu} selection={this.selection} type='de'/>
         </div>
       </div>
-    );
+      );
+    }
   }
-}
 
 export default OrderMenu;
