@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({menuView,selection = 'with onClick',type}) => {
+export default ({menuView,selection = 'without onClick',type}) => {
   /**
   |--------------------------------------------------
   | menuView = data state from availableMenu or chosenMenu
@@ -11,7 +11,7 @@ export default ({menuView,selection = 'with onClick',type}) => {
 	const MenuList = menuView.length ?
     menuView.map(
       menu=> {
-        if(selection==='with onClick'){
+        if(selection!=='without onClick'){
           //with onClick event to move state data from availableMenu to chosenMenu
           return (
             <div className="collection-item" key={menu.id} onClick={()=>(selection(menu.id,type))}>{menu.nama}</div> 
