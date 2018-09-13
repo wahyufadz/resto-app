@@ -12,8 +12,9 @@ class OrderMenu extends Component {
     chosenMenu:[
     ]
   }
+  
   componentDidMount(){
-    Axios.get('http://localhost:3000/menu')
+    Axios.get('http://localhost:3030/menu')
     .then(json => {
       console.log(json);
       this.setState({availableMenu:json.data})
