@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default () => {
-  return (
-    <div>
-      <h1>This Is Add Menu</h1>
-    </div>
-  )
+export default class AddMenu extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
 }
