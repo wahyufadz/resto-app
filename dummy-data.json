@@ -9,7 +9,6 @@
     {"id":6,"nama":"nasi pecel","harga":5000},
     {"id":7,"nama":"nasi tempong","harga":12000},
     {"id":8,"nama":"nasi campur","harga":8000},
-    {"id":9,"nama":"nasi bongkot","harga":7000},
-    {"id":10,"nama":"nasi sambel","harga":4000}
+    {"id":9,"nama":"nasi bongkot","harga":7000}
   ]
 }
