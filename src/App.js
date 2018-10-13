@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Main from './Main';
+import { Provider } from 'unstated';
+import { BrowserRouter } from 'react-router-dom'
+
 import 'materialize-css/dist/css/materialize.min.css'
 import {AutoInit} from'materialize-css'
 import 'material-design-icons/iconfont/material-icons.css'
@@ -10,7 +14,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App container">
+      <div className="App">
+        <Provider>
+          <BrowserRouter>
+            <Main/>
+          </BrowserRouter>        
+        </Provider>
       </div>
     );
   }
